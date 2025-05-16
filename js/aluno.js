@@ -125,10 +125,18 @@ async function criarTabelaAlunos(alunos) {
     });
 
     async function excluirAluno(idAluno) {
-        const url = `http://localhost:3333/remove/aluno/${idAluno}`;
+        const alunoDTO = {
+            statusAluno: false
+        };
     
         try {
-            const response = await fetch(url, { method: 'DELETE' });
+            const response = await fetch(`http://localhost:3333/remove/aluno?idAluno=${idAluno}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(alunoDTO)
+            });
     
             if (response.ok) {
                 alert('Aluno removido com sucesso');
@@ -142,5 +150,4 @@ async function criarTabelaAlunos(alunos) {
             alert('Erro ao tentar excluir o aluno.');
         }
     }
-
-}
+} 

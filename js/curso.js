@@ -86,11 +86,11 @@ async function criarTabelaCursos(cursos) {
             const queryParams = new URLSearchParams(dadosParaEnviar).toString();
         
             // Redirecionar com os dados na URL
-            window.location.href = `atualizar-livro.html?${queryParams}`;
+            window.location.href = `atualizar-curso.html?${queryParams}`;
         });
 
         const iconExcluir = document.createElement('img');
-        iconExcluir.addEventListener("click", () => excluirLivro(livro.idLivro)); 
+        iconExcluir.addEventListener("click", () => excluirCurso(curso.idCurso)); 
         iconExcluir.src = 'assets/icons/trash-fill.svg'; 
         iconExcluir.alt = 'Ícone de excluir'; 
 
@@ -109,10 +109,18 @@ async function criarTabelaCursos(cursos) {
     });
 
     async function excluirCurso(idCurso) {
-        const url = `http://localhost:3333/remove/curso/${idCurso}`;
+        const cursoDTO = {
+            statusCurso: false
+        };
     
         try {
-            const response = await fetch(url, { method: 'PUT' });
+            const response = await fetch(`http://localhost:3333/remove/curso?idCurso=${idCurso}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cursoDTO)
+            });
     
             if (response.ok) {
                 alert('Curso removido com sucesso');

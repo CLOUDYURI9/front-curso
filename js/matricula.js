@@ -107,13 +107,21 @@ async function criarTabelaMatriculas(matriculas) {
     });
 
     async function excluirMatricula(idMatricula) {
-        const url = `http://localhost:3333/remover/matricula/${idMatricula}`;
+        const matriculaDTO = {
+            statusMatricula: false
+        };
     
         try {
-            const response = await fetch(url, { method: 'PUT' });
+            const response = await fetch(`http://localhost:3333/remove/matricula?idMatricula=${idMatricula}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(matriculaDTO)
+            });
     
             if (response.ok) {
-                alert('Matricula removido com sucesso');
+                alert('Matricula removida com sucesso');
                 window.location.reload();
             } else {
                 const error = await response.json();

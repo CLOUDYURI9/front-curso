@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Aluno</title>
+    <title>Cadastro Curso</title>
     <link rel="stylesheet" href="css/principal.css">
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/navegacao.css">
@@ -19,36 +19,31 @@
             <a href="lista-matricula.html">MATRICULAS</a>
         </nav>
     </header>
-    <h1>ATUALIZAR ALUNO</h1>
+    <h1>ATUALIZAR CURSO</h1>
     <div class="container-formulario">
         <form action="">
-            <input type="number" name="input-id-aluno" disabled hidden>
+            <input type="number" name="input-id-curso" disabled hidden>
             <label>
-                Nome
+                Nome Curso
                 <br>
                 <input type="text" name="input-nome-aluno" placeholder="Insira o nome do aluno" required>
             </label>
             <label>
-                Data de Nascimento 
+                Duração do Curso
                 <br>
-                <input id="dataNascimento" type="date" name="dataNascimento" placeholder="Insira a data de nascimento do aluno">
+                <input id="duracaoCurso" type="text" name="duracaoCurso" placeholder="Insira a duração do Curso">
             </label>
             
             <label>
-                Celular
+                Categorização
                 <br>
-                <input type="number" name="input-celular-aluno" placeholder="Insira o telefone do aluno">
-            </label>
-            <label>
-                Email
-                <br>
-                <input type="text" name="input-email-aluno" placeholder="Insira o email do aluno" required>
+                <input type="text" name="input-categorizacao-curso" placeholder="Insira a Categoria do curso">
             </label>
 
             <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
         </form>
     </div>
-    <script src="js/atualizarAluno.js"></script>
+    <script src="js/atualizarCurso.js"></script>
 </body>
 
 </html>
